@@ -1,44 +1,19 @@
 package com.wechargers.qa.frontend.factory.settings;
 
+import com.wechargers.qa.frontend.data.browser.data.EBrowserParameter;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.AbstractDriverOptions;
 
-public class FirefoxSettings {
-    public AbstractDriverOptions settings(String launchParameter) {
+public class FirefoxSettings implements IBrowserSettings {
+    @Override
+    public AbstractDriverOptions settings(EBrowserParameter parameter) {
         FirefoxOptions options = new FirefoxOptions();
 
-        // Обязательные параметры для всех режимов
-        options.addArguments(
-                "--no-sandbox",
-                "--disable-dev-shm-usage",
-                "--disable-infobars",
-                "--disable-extensions",
-                "--disable-notifications",
-                "--language=en"
-        );
-
-        try {
-            if (launchParameter != null && !launchParameter.isEmpty()) {
-                switch (launchParameter.toLowerCase()) {
-                    case "headless":
-                        options.addArguments("--headless");
-                        break;
-                    case "fullscreen":
-                        options.addArguments("--start-maximized");
-                        break;
-                    case "private":
-                        options.addArguments("--private");
-                        break;
-                    case "kiosk":
-                        options.addArguments("--kiosk");
-                        break;
-                    default:
-                        // Оставляем только базовые настройки
-                }
-            }
-        } catch (Exception e) {
-            return new FirefoxOptions()
-                    .addArguments("--no-sandbox", "--disable-dev-shm-usage");
+        switch (parameter) {
+            case FULLSCREEN -> options.addArguments("--start-maximized");
+            case HEADLESS -> options.addArguments("--headless");
+            case KIOSK -> options.addArguments("--kiosk");
+            case INCOGNITO -> options.addArguments("--private");
         }
 
         return options;

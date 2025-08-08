@@ -24,17 +24,16 @@ public class HomePage extends AbsBasePage<HomePage> {
 
     @Step("Кликнуть на раздел '{sectionName}'")
     public void clickOnSection(String sectionName) {
-        pageUtil
-                .waitForElementsInitialized(driver, allSectionsLinks, 10)
-                .stream()
-                .filter(el -> el.getAttribute("href").endsWith("/" + sectionName))
-                .findFirst()
-                .ifPresent(WebElement::click);
+        allSectionsLinks
+                       .stream()
+                       .filter(el -> el.getAttribute("href").endsWith("/" + sectionName))
+                       .findFirst()
+                       .ifPresent(WebElement::click);
     }
 
     @Step("Получить строки таблицы")
     public List<WebElement> getTableRows() {
-        return pageUtil.waitForElementsInitialized(driver, tableRowLocator, 10);
+        return tableRowLocator;
     }
 
 }

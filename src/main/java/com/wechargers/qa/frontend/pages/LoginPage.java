@@ -27,7 +27,7 @@ public class LoginPage extends AbsBasePage<LoginPage> {
 
     @Step("Ввести email '{email}'")
     public LoginPage enterEmail(String email) {
-        pageUtil.waitToInteractWithElement(driver, emailLocator, 10);
+        pageUtil.waitForElementToBeClickable(driver, emailLocator, 10);
         actions
                 .click(emailLocator)
                 .keyDown(Keys.CONTROL)
@@ -41,7 +41,7 @@ public class LoginPage extends AbsBasePage<LoginPage> {
 
     @Step("Ввести пароль")
     public LoginPage enterPassword(String password) {
-        pageUtil.waitToInteractWithElement(driver, passwordLocator, 10);
+        pageUtil.waitForElementToBeClickable(driver, passwordLocator, 10);
         actions
                 .click(passwordLocator)
                 .keyDown(Keys.CONTROL)
@@ -56,7 +56,7 @@ public class LoginPage extends AbsBasePage<LoginPage> {
     @Step("Нажать кнопку входа")
     public void clickSubmitButton() {
         pageUtil
-                .waitToInteractWithElement(driver, submitButtonLocator, 10)
+                .waitForElementToBeClickable(driver, submitButtonLocator, 10)
                 .click();
     }
 

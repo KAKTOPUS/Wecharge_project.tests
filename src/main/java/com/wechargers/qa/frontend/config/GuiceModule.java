@@ -7,7 +7,6 @@ public class GuiceModule extends AbstractModule {
 
     public void configure() {
         install(new WebDriverModule());
-
         bind(PageUtil.class).asEagerSingleton();
     }
 

@@ -4,7 +4,6 @@ import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.wechargers.qa.frontend.config.GuiceModule;
-import com.wechargers.qa.frontend.utils.PageUtil;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
@@ -18,8 +17,6 @@ public abstract class AbsBaseSut {
     protected HomePage homePage;
     @Inject
     protected LoginPage loginPage;
-    @Inject
-    protected PageUtil pageUtil;
 
     @BeforeEach
     public void setUp() {
