@@ -1,4 +1,4 @@
-package com.wechargers.qa.frontend.pages;
+package com.wechargers.qa.frontend.pages.main.pages;
 
 import com.wechargers.qa.frontend.utils.PageUtil;
 import io.qameta.allure.Step;

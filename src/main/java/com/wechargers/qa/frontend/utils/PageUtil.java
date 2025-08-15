@@ -12,4 +12,15 @@ public class PageUtil {
                 .until(ExpectedConditions.elementToBeClickable(element));
     }
 
+    public WebElement waitForElementIsVisible(WebDriver driver, WebElement element, int timeout) {
+        return new WebDriverWait(driver, Duration.ofSeconds(timeout))
+                .until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public String convertDateToDetailForm(String date) {
+        return date
+                .replace("/", "-")
+                .replaceFirst("-\\s+", ", ");
+    }
+
 }

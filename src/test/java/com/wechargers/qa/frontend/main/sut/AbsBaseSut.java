@@ -4,11 +4,13 @@ import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.wechargers.qa.frontend.config.GuiceModule;
+import com.wechargers.qa.frontend.pages.detail.pages.RentalsDetailPage;
+import com.wechargers.qa.frontend.pages.main.pages.RentalsPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
-import com.wechargers.qa.frontend.pages.HomePage;
-import com.wechargers.qa.frontend.pages.LoginPage;
+import com.wechargers.qa.frontend.pages.main.pages.HomePage;
+import com.wechargers.qa.frontend.pages.main.pages.LoginPage;
 
 public abstract class AbsBaseSut {
     @Inject
@@ -17,6 +19,10 @@ public abstract class AbsBaseSut {
     protected HomePage homePage;
     @Inject
     protected LoginPage loginPage;
+    @Inject
+    protected RentalsPage rentalsPage;
+    @Inject
+    protected RentalsDetailPage rentalsDetailPage;
 
     @BeforeEach
     public void setUp() {

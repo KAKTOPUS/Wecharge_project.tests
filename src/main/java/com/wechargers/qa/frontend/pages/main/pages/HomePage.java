@@ -1,4 +1,4 @@
-package com.wechargers.qa.frontend.pages;
+package com.wechargers.qa.frontend.pages.main.pages;
 
 import com.google.inject.Inject;
 import com.wechargers.qa.frontend.utils.PageUtil;
@@ -34,6 +34,10 @@ public class HomePage extends AbsBasePage<HomePage> {
     @Step("Получить строки таблицы")
     public List<WebElement> getTableRows() {
         return tableRowLocator;
+    }
+
+    public String getRecordTableRowLocator() {
+        return pageUtil.waitForElementToBeClickable(driver, tableRowLocator.get(0), 10).getText();
     }
 
 }
