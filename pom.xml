@@ -20,9 +20,10 @@
         <junit-platform.version>1.13.3</junit-platform.version>
         <allure.version>2.29.1</allure.version>
         <assertj.version>3.27.3</assertj.version>
-        <slf4j.version>2.0.16</slf4j.version>
         <aspectj-weaver.version>1.9.24</aspectj-weaver.version>
         <guice.version>7.0.0</guice.version>
+        <slf4j-simple.version>2.0.17</slf4j-simple.version>
+        <dotenv.version>3.2.0</dotenv.version>
 
         <!-- Plugin Versions -->
         <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
@@ -93,19 +94,26 @@
             <version>${assertj.version}</version>
         </dependency>
 
-        <!-- Slf4j Simple -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>${slf4j.version}</version>
-            <scope>test</scope>
-        </dependency>
-
         <!-- Google Guice -->
         <dependency>
             <groupId>com.google.inject</groupId>
             <artifactId>guice</artifactId>
             <version>${guice.version}</version>
+        </dependency>
+
+        <!-- Slf4j Simple -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j-simple.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- DotEnv -->
+        <dependency>
+            <groupId>io.github.cdimascio</groupId>
+            <artifactId>dotenv-java</artifactId>
+            <version>${dotenv.version}</version>
         </dependency>
 
     </dependencies>
@@ -140,14 +148,6 @@
                     <parallel>classesAndMethods</parallel>
                     <threadCount>4</threadCount>
                     <perCoreThreadCount>true</perCoreThreadCount>
-
-                    <systemPropertyVariables>
-                        <browser>firefox</browser>
-                        <browser-version></browser-version>
-                        <launch-parameter>fullscreen</launch-parameter>
-                        <base-url>https://apanel.wechargers.com</base-url>
-                        <remote-url></remote-url>
-                    </systemPropertyVariables>
                 </configuration>
 
                 <dependencies>
